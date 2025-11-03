@@ -9,6 +9,11 @@
         "level": "DEV",
         "expires": null,
         "active": true
+      },
+      "Valek": {
+        "level": "PRO",
+        "expires": null,
+        "active": true
       }
     }
   }
