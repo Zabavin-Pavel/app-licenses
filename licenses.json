@@ -1,0 +1,43 @@
+{
+  "joystick": {
+    "a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5z6a7b8c9d0e1f2": {
+      "user": "Pavel",
+      "expires": null,
+      "active": true,
+      "level": "DEV"
+    }
+  },
+  "another_app": {
+    " ": {
+      "user": "Pavel",
+      "expires": null,
+      "active": false,
+      "level": "DEV"
+    }
+  },
+  "_readme": {
+    "info": "Файл лицензий для приложений",
+    "structure": {
+      "app_name": {
+        "hwid": {
+          "user": "Имя пользователя",
+          "expires": "YYYY-MM-DD или null",
+          "active": "true для постоянной лицензии, false для проверки expires",
+          "level": "TRY, PRO, DEV или любой другой уровень"
+        }
+      }
+    },
+    "levels": {
+      "TRY": "Пробная версия - ограниченный функционал",
+      "PRO": "Полная версия - все возможности",
+      "DEV": "Версия разработчика - расширенные функции"
+    },
+    "logic": [
+      "Если active == true -> игнорируем expires, возвращаем level",
+      "Если active != true -> проверяем expires:",
+      "  - expires пустая/null -> отказ",
+      "  - expires устарела -> отказ",
+      "  - expires валидна -> возвращаем level"
+    ]
+  }
+}
