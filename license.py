@@ -41,7 +41,7 @@ class LicenseManager:
         self.app_name = app_name
         self.timeout = timeout
         # self.hwid = self._generate_hwid()
-        self.hwid = '0f47808f9f361c0f88e115a2d59ffbab644f74f81f3fb0a7c340899c4453581e'
+        self.hwid = '24e00839c478ec63017f05a0453532ba000d3d8f50767befee1eb934ab14caff'
         
     def _generate_hwid(self) -> str:
         """Генерация уникального HWID на основе железа"""
