@@ -5,7 +5,8 @@
     "Alex": "3e65a8012f215154375353baae6467641689362e77a691ca73668fc9c8968a42",
     "Sereja": "68cee6c11ddd367f230f9443d5b74b2e4b12bea675b1a3c8a6fc23f7bfedef13",
     "Dima": "0f47808f9f361c0f88e115a2d59ffbab644f74f81f3fb0a7c340899c4453581e",
-    "Evgen": "24e00839c478ec63017f05a0453532ba000d3d8f50767befee1eb934ab14caff"
+    "Evgen": "24e00839c478ec63017f05a0453532ba000d3d8f50767befee1eb934ab14caff",
+    "Ruslan": "2f62f8f0f0bc64201512c48177e7063046ac1cd8797b864d41374dd9bfe1e019"
 
   },
   "apps": {
@@ -36,6 +37,11 @@
         "active": true
       },
       "Evgen": {
+        "level": "PRO",
+        "expires": null,
+        "active": true
+      },
+      "Ruslan": {
         "level": "PRO",
         "expires": null,
         "active": true
