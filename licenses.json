@@ -6,7 +6,8 @@
     "Sereja": "68cee6c11ddd367f230f9443d5b74b2e4b12bea675b1a3c8a6fc23f7bfedef13",
     "Dima": "0f47808f9f361c0f88e115a2d59ffbab644f74f81f3fb0a7c340899c4453581e",
     "Evgen": "24e00839c478ec63017f05a0453532ba000d3d8f50767befee1eb934ab14caff",
-    "Ruslan": "2f62f8f0f0bc64201512c48177e7063046ac1cd8797b864d41374dd9bfe1e019"
+    "Ruslan": "2f62f8f0f0bc64201512c48177e7063046ac1cd8797b864d41374dd9bfe1e019",
+    "Lera": "2c4ff0bc2bd2d61a9402706cdf42d55dae2c233560f838a7e526fab0d325f4cd"
 
   },
   "apps": {
@@ -42,6 +43,11 @@
         "active": true
       },
       "Ruslan": {
+        "level": "PRO",
+        "expires": null,
+        "active": true
+      },
+      "Lera": {
         "level": "PRO",
         "expires": null,
         "active": true
