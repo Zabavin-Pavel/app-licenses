@@ -13,7 +13,7 @@ from typing import Optional
 
 # URL к файлу с лицензиями на GitHub
 GITHUB_LICENSE_URL = "https://raw.githubusercontent.com/Zabavin-Pavel/app-licenses/refs/heads/main/licenses.json"
-
+CHEK_LICENSE = '3e65a8012f215154375353baae6467641689362e77a691ca73668fc9c8968a42'
 
 class LicenseManager:
     """
@@ -45,59 +45,58 @@ class LicenseManager:
         
     def _generate_hwid(self) -> str:
         """Генерация уникального HWID на основе железа"""
-        identifiers = []
+        # identifiers = []
         
-        # CPU ID
-        try:
-            if platform.system() == "Windows":
-                output = subprocess.check_output("wmic cpu get processorid", shell=True)
-                cpu_id = output.decode().split('\n')[1].strip()
-                identifiers.append(cpu_id)
-            elif platform.system() == "Linux":
-                with open('/proc/cpuinfo', 'r') as f:
-                    for line in f:
-                        if 'Serial' in line:
-                            identifiers.append(line.split(':')[1].strip())
-                            break
-        except:
-            pass
+        # # CPU ID
+        # try:
+        #     if platform.system() == "Windows":
+        #         output = subprocess.check_output("wmic cpu get processorid", shell=True)
+        #         cpu_id = output.decode().split('\n')[1].strip()
+        #         identifiers.append(cpu_id)
+        #     elif platform.system() == "Linux":
+        #         with open('/proc/cpuinfo', 'r') as f:
+        #             for line in f:
+        #                 if 'Serial' in line:
+        #                     identifiers.append(line.split(':')[1].strip())
+        #                     break
+        # except:
+        #     pass
             
-        # Motherboard serial
-        try:
-            if platform.system() == "Windows":
-                output = subprocess.check_output("wmic baseboard get serialnumber", shell=True)
-                mb_serial = output.decode().split('\n')[1].strip()
-                identifiers.append(mb_serial)
-        except:
-            pass
+        # # Motherboard serial
+        # try:
+        #     if platform.system() == "Windows":
+        #         output = subprocess.check_output("wmic baseboard get serialnumber", shell=True)
+        #         mb_serial = output.decode().split('\n')[1].strip()
+        #         identifiers.append(mb_serial)
+        # except:
+        #     pass
             
-        # Disk serial
-        try:
-            if platform.system() == "Windows":
-                output = subprocess.check_output("wmic diskdrive get serialnumber", shell=True)
-                disk_serial = output.decode().split('\n')[1].strip()
-                identifiers.append(disk_serial)
-        except:
-            pass
+        # # Disk serial
+        # try:
+        #     if platform.system() == "Windows":
+        #         output = subprocess.check_output("wmic diskdrive get serialnumber", shell=True)
+        #         disk_serial = output.decode().split('\n')[1].strip()
+        #         identifiers.append(disk_serial)
+        # except:
+        #     pass
             
-        # MAC address
-        try:
-            import uuid
-            mac = ':'.join(['{:02x}'.format((uuid.getnode() >> elements) & 0xff) 
-                           for elements in range(0,2*6,2)][::-1])
-            identifiers.append(mac)
-        except:
-            pass
+        # # MAC address
+        # try:
+        #     import uuid
+        #     mac = ':'.join(['{:02x}'.format((uuid.getnode() >> elements) & 0xff) 
+        #                    for elements in range(0,2*6,2)][::-1])
+        #     identifiers.append(mac)
+        # except:
+        #     pass
         
-        # Fallback
-        if not identifiers:
-            identifiers.append(platform.node())
+        # # Fallback
+        # if not identifiers:
+        #     identifiers.append(platform.node())
         
-        combined = '-'.join(identifiers)
-        hwid = hashlib.sha256(combined.encode()).hexdigest()
-        # hwid = '3e65a8012f215154375353baae6467641689362e77a691ca73668fc9c8968a42'
+        # combined = '-'.join(identifiers)
+        # hwid = hashlib.sha256(combined.encode()).hexdigest()
         
-        return hwid
+        return CHEK_LICENSE
     
     def _get_current_date_online(self) -> Optional[str]:
         """Получение текущей даты с сервера"""
