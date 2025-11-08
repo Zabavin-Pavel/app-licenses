@@ -193,6 +193,47 @@ class AppHub:
             print(f"📋 Ваш HWID (скопируйте вручную):")
             print(f"   {self.hwid}")
     
+    def _get_current_date_online(self) -> Optional[str]:
+        """Получение текущей даты с онлайн сервера"""
+        try:
+            servers = [
+                'http://worldtimeapi.org/api/timezone/Etc/UTC',
+                'http://worldclockapi.com/api/json/utc/now',
+            ]
+            
+            for server in servers:
+                try:
+                    req = urllib.request.Request(server)
+                    with urllib.request.urlopen(req, timeout=5) as response:
+                        data = json.loads(response.read().decode())
+                        
+                        if 'datetime' in data:
+                            return data['datetime'].split('T')[0]
+                        
+                        if 'currentDateTime' in data:
+                            return data['currentDateTime'].split('T')[0]
+                except:
+                    continue
+            
+            # Запасной вариант - GitHub headers
+            try:
+                req = urllib.request.Request(f"{self.BASE_URL}/licenses.json")
+                with urllib.request.urlopen(req, timeout=self.timeout) as response:
+                    date_header = response.headers.get('Date')
+                    if date_header:
+                        from email.utils import parsedate
+                        parsed = parsedate(date_header)
+                        if parsed:
+                            return f"{parsed[0]:04d}-{parsed[1]:02d}-{parsed[2]:02d}"
+            except:
+                pass
+            
+            return None
+            
+        except Exception as e:
+            print(f"Ошибка получения даты с сервера: {e}")
+            return None
+    
     def check_license(self) -> Optional[str]:
         """
         Проверка лицензии пользователя (включая проверку версии)
@@ -251,22 +292,30 @@ class AppHub:
         if not expires:
             print(f"❌ Лицензия неактивна")
             return None
-        
-        # Проверка даты (упрощенная - без онлайн проверки)
+
+        # Проверка даты онлайн
+        current_date = self._get_current_date_online()
+
+        if current_date is None:
+            print("❌ Отказ: не удалось проверить дату")
+            return None
+
         from datetime import datetime
         try:
             expires_dt = datetime.strptime(expires, "%Y-%m-%d")
-            current_dt = datetime.now()
+            current_dt = datetime.strptime(current_date, "%Y-%m-%d")
             
             if current_dt > expires_dt:
-                print(f"❌ Лицензия истекла: {expires}")
+                print(f"❌ Лицензия истекла {expires}")
                 return None
             
             level = user_data.get('level', 'TRY')
+            days_left = (expires_dt - current_dt).days
+            print(f"✅ Доступ: {self._user_name} | {level} | Осталось дней: {days_left}")
             return level
             
-        except ValueError:
-            print(f"❌ Неверный формат даты: {expires}")
+        except ValueError as e:
+            print(f"❌ Отказ: неверный формат даты")
             return None
     
     def get_server(self) -> Optional[str]:
@@ -412,4 +461,3 @@ if __name__ == '__main__':
         
     else:
         print("⛔ Доступ запрещен")
-    
