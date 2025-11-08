@@ -5,6 +5,8 @@
     "Решите пример.*?(\\d+\\s*[+\\-*/]\\s*\\d+)"
   ],
   "offsets": {
-    "DEFAULT_OFFSET": "0x000000"
+    "CHAT_FUNC_OFFSET": "0x56FBC0",
+    "WORLD_CHAT_OFFSET": "0x12AB34",
+    "SEND_PACKET_OFFSET": "0xABCDEF"
   }
 }

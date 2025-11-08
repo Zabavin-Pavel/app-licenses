@@ -4,8 +4,8 @@
 """
 
 import json
+import sys
 import hashlib
-import platform
 import subprocess
 import urllib.request
 from typing import Optional, Any
@@ -55,34 +55,25 @@ class AppHub:
         
         # CPU ID
         try:
-            if platform.system() == "Windows":
-                output = subprocess.check_output("wmic cpu get processorid", shell=True)
-                cpu_id = output.decode().split('\n')[1].strip()
-                identifiers.append(cpu_id)
-            elif platform.system() == "Linux":
-                with open('/proc/cpuinfo', 'r') as f:
-                    for line in f:
-                        if 'Serial' in line:
-                            identifiers.append(line.split(':')[1].strip())
-                            break
+            output = subprocess.check_output("wmic cpu get processorid", shell=True)
+            cpu_id = output.decode().split('\n')[1].strip()
+            identifiers.append(cpu_id)
         except:
             pass
             
         # Motherboard serial
         try:
-            if platform.system() == "Windows":
-                output = subprocess.check_output("wmic baseboard get serialnumber", shell=True)
-                mb_serial = output.decode().split('\n')[1].strip()
-                identifiers.append(mb_serial)
+            output = subprocess.check_output("wmic baseboard get serialnumber", shell=True)
+            mb_serial = output.decode().split('\n')[1].strip()
+            identifiers.append(mb_serial)
         except:
             pass
             
         # Disk serial
         try:
-            if platform.system() == "Windows":
-                output = subprocess.check_output("wmic diskdrive get serialnumber", shell=True)
-                disk_serial = output.decode().split('\n')[1].strip()
-                identifiers.append(disk_serial)
+            output = subprocess.check_output("wmic diskdrive get serialnumber", shell=True)
+            disk_serial = output.decode().split('\n')[1].strip()
+            identifiers.append(disk_serial)
         except:
             pass
             
@@ -90,14 +81,10 @@ class AppHub:
         try:
             import uuid
             mac = ':'.join(['{:02x}'.format((uuid.getnode() >> elements) & 0xff) 
-                           for elements in range(0,2*6,2)][::-1])
+                        for elements in range(0,2*6,2)][::-1])
             identifiers.append(mac)
         except:
             pass
-        
-        # Fallback
-        if not identifiers:
-            identifiers.append(platform.node())
         
         combined = '-'.join(identifiers)
         hwid = hashlib.sha256(combined.encode()).hexdigest()
@@ -105,7 +92,26 @@ class AppHub:
         return hwid
     
     def _fetch_json(self, filename: str) -> Optional[dict]:
-        """Загрузка JSON файла с GitHub"""
+        """
+        Загрузка JSON файла с автоопределением источника
+        
+        Режимы:
+        - Разработка (не .exe) → пробуем локальный файл, затем GitHub
+        - Production (.exe) → только GitHub
+        """
+        is_packaged = hasattr(sys, '_MEIPASS')
+        
+        # Режим разработки - пробуем локальный файл
+        if not is_packaged:
+            try:
+                with open(filename, 'r', encoding='utf-8') as f:
+                    return json.loads(f.read())
+            except FileNotFoundError:
+                pass  # Fallback на GitHub
+            except Exception as e:
+                print(f"❌ Ошибка чтения локального {filename}: {e}")
+        
+        # Production или fallback - загрузка с GitHub
         try:
             url = f"{self.BASE_URL}/{filename}"
             req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
@@ -174,20 +180,14 @@ class AppHub:
     def _copy_hwid_to_clipboard(self):
         """Копирование HWID в буфер обмена"""
         try:
-            if platform.system() == "Windows":
-                # Используем clip.exe для Windows
-                process = subprocess.Popen(
-                    'clip',
-                    stdin=subprocess.PIPE,
-                    shell=True
-                )
-                process.communicate(self.hwid.encode('utf-8'))
-                print(f"✅ HWID скопирован в буфер обмена")
-                print(f"   {self.hwid}")
-            else:
-                # Для Linux/Mac - просто выводим
-                print(f"📋 Ваш HWID (скопируйте вручную):")
-                print(f"   {self.hwid}")
+            process = subprocess.Popen(
+                'clip',
+                stdin=subprocess.PIPE,
+                shell=True
+            )
+            process.communicate(self.hwid.encode('utf-8'))
+            print(f"✅ HWID скопирован в буфер обмена")
+            print(f"   {self.hwid}")
         except Exception as e:
             print(f"❌ Ошибка копирования в буфер: {e}")
             print(f"📋 Ваш HWID (скопируйте вручную):")
@@ -385,18 +385,11 @@ class AppHub:
 
 
 if __name__ == '__main__':
-    """
-    Тестовый запуск: выводит всех пользователей с лицензиями
-    """
-    print("=" * 60)
-    print("APP HUB - ТЕСТОВЫЙ РЕЖИМ")
-    print("=" * 60)
-    
     # Создаем экземпляр
     hub = AppHub("joystick", current_version="5")
-    
-    print(f"\nВаш HWID: {hub.get_hwid()}")
-    print("\nПроверка лицензии (включая версию)...")
+
+    # # Вывод всех пользователей
+    # hub.debug_all_users()
     
     # Проверка лицензии (включает проверку версии)
     level = hub.check_license()
@@ -407,11 +400,6 @@ if __name__ == '__main__':
         # Получение сервера
         server = hub.get_server()
         print(f"✅ Сервер: {server}")
-        
-        # Примеры получения параметров
-        print("\n" + "=" * 60)
-        print("ПРИМЕРЫ ПОЛУЧЕНИЯ ПАРАМЕТРОВ")
-        print("=" * 60)
         
         delay = hub.get("delay")
         print(f"delay: {delay}")
@@ -425,9 +413,3 @@ if __name__ == '__main__':
     else:
         print("⛔ Доступ запрещен")
     
-    print("\n" + "=" * 60)
-    print("ВСЕ ПОЛЬЗОВАТЕЛИ")
-    print("=" * 60)
-    
-    # Вывод всех пользователей
-    hub.debug_all_users()
