@@ -1,12 +1,23 @@
 {
+  "triggers": ["[PVP-Ивент]", "БХ:"],
+  "chat_filters": ["^FF3600", "^00FF00"],
   "patterns": [
-    "\\[PVP-Ивент\\].*?пример.*?(\\d+\\s*[+\\-*/]\\s*\\d+)",
-    "Решите пример.*?(\\d+\\s*[+\\-*/]\\s*\\d+)"
+    "БХ\\s*:\\s*(\\d+(?:\\s*[+\\-*/]\\s*\\d+)+)\\s*\\|",
+    "решите\\s*пример\\s*[:\\s]*(\\d+(?:\\s*[+\\-*/]\\s*\\d+)+)",
+    "пример\\s*[:\\s]*(\\d+(?:\\s*[+\\-*/]\\s*\\d+)+)\\s*\\|"
   ],
-  "delay": 100,
-  "offsets": {
-    "CHAT_FUNC_OFFSET": "0x56FBC0",
-    "WORLD_CHAT_OFFSET": "0x12AB34",
-    "SEND_PACKET_OFFSET": "0xABCDEF"
+  "fallback": {
+    "enabled": true,
+    "collect_messages": 5,
+    "min_same_answers": 3,
+    "timeout": 5000
+  },
+  "delay": 500,
+  "auto_send": true,
+  "chat_offsets": {
+    "base": "0x01431EE8",
+    "chain": ["0x0", "0x98", "0x278", "0x150", "0x18"],
+    "counter": "0x28C",
+    "string_chain": ["0x6F0", "0xC8"]
   }
 }
