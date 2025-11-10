@@ -6,7 +6,6 @@
   ],
   "fallback": {
     "enabled": true,
-    "collect_messages": 5,
     "min_same_answers": 3,
     "timeout": 5000
   },
