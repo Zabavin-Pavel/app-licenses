@@ -1,10 +1,8 @@
 {
-  "triggers": ["[PVP-Ивент]", "БХ:"],
+  "triggers": ["[PVP-Ивент]", "БХ"],
   "chat_filters": ["^FF3600", "^00FF00"],
   "patterns": [
-    "БХ\\s*:\\s*(\\d+(?:\\s*[+\\-*/]\\s*\\d+)+)\\s*\\|",
-    "решите\\s*пример\\s*[:\\s]*(\\d+(?:\\s*[+\\-*/]\\s*\\d+)+)",
-    "пример\\s*[:\\s]*(\\d+(?:\\s*[+\\-*/]\\s*\\d+)+)\\s*\\|"
+    "БХ\\s*:\\s*(.+?)\\s*\\|"
   ],
   "fallback": {
     "enabled": true,
@@ -12,7 +10,7 @@
     "min_same_answers": 3,
     "timeout": 5000
   },
-  "delay": 500,
+  "delay": 100,
   "auto_send": true,
   "chat_offsets": {
     "base": "0x01431EE8",
