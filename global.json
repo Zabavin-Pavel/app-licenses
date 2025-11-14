@@ -9,7 +9,7 @@
     "min_same_answers": 3,
     "timeout": 10000
   },
-  "delay": 1500,
+  "delay": 1000,
   "auto_send": true,
   "chat_offsets": {
     "base": "0x01431EE8",
