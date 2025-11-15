@@ -8,7 +8,8 @@
     "Dima": "",
     "Evgen": "2afb692663d0b195ae331d87e4321a2bdd8ddebdb77dec81e91badf52153523a",
     "Ruslan": "91959a55cb96439eb4ecf8cc0a16f1f16a83cc08359a4c37adb051822fa1ae9a",
-    "Lera": "97bf3fbcedf7e1222c721fcb1f2cba8f1cb3366e086b32005d3b1db6ff0f54ac"
+    "Lera": "97bf3fbcedf7e1222c721fcb1f2cba8f1cb3366e086b32005d3b1db6ff0f54ac",
+    "Olea": "94246ce346bbe6fb3db96c8176e76268a8642be5842ee76ba6b762253504c385"
   },
   "apps": {
     "joystick": {
@@ -48,6 +49,11 @@
         "active": true
       },
       "Lera": {
+        "level": "PRO",
+        "expires": null,
+        "active": true
+      },
+      "Olea": {
         "level": "PRO",
         "expires": null,
         "active": true
