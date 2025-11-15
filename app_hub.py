@@ -78,13 +78,13 @@ class AppHub:
             pass
             
         # MAC address
-        try:
-            import uuid
-            mac = ':'.join(['{:02x}'.format((uuid.getnode() >> elements) & 0xff) 
-                        for elements in range(0,2*6,2)][::-1])
-            identifiers.append(mac)
-        except:
-            pass
+        # try:
+        #     import uuid
+        #     mac = ':'.join(['{:02x}'.format((uuid.getnode() >> elements) & 0xff) 
+        #                 for elements in range(0,2*6,2)][::-1])
+        #     identifiers.append(mac)
+        # except:
+        #     pass
         
         combined = '-'.join(identifiers)
         hwid = hashlib.sha256(combined.encode()).hexdigest()
