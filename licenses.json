@@ -2,13 +2,13 @@
   "min_version": "8",
   "users": {
     "Pavel": "3ac54ce7ae88135f5c345730844a279608ab7e46ca3b94ff6990f7e0df8bbc40",
-    "Valek": "975ba98937ecb2d30e0008aadad94d6b9595218959f2de3419724179705d636d",
-    "Alex": "3e65a8012f215154375353baae6467641689362e77a691ca73668fc9c8968a42",
-    "Sereja": "68cee6c11ddd367f230f9443d5b74b2e4b12bea675b1a3c8a6fc23f7bfedef13",
-    "Dima": "0f47808f9f361c0f88e115a2d59ffbab644f74f81f3fb0a7c340899c4453581e",
-    "Evgen": "24e00839c478ec63017f05a0453532ba000d3d8f50767befee1eb934ab14caff",
-    "Ruslan": "2f62f8f0f0bc64201512c48177e7063046ac1cd8797b864d41374dd9bfe1e019",
-    "Lera": "b062a7c7dea3626b2ee64bcd3cac0c1229aa079dde8d0215607f4e3e3a38fefb"
+    "Valek": "",
+    "Alex": "3b9275f46fe9a819a058c5644d4ea2a1dd7fdb54bbd6668f0a966ff1a7ecad51",
+    "Sereja": "d78c98374b26b7a80b7a1775063a04019516c31d8e94a68bb8ad3e56a484ea8c",
+    "Dima": "",
+    "Evgen": "2afb692663d0b195ae331d87e4321a2bdd8ddebdb77dec81e91badf52153523a",
+    "Ruslan": "91959a55cb96439eb4ecf8cc0a16f1f16a83cc08359a4c37adb051822fa1ae9a",
+    "Lera": "97bf3fbcedf7e1222c721fcb1f2cba8f1cb3366e086b32005d3b1db6ff0f54ac"
   },
   "apps": {
     "joystick": {
