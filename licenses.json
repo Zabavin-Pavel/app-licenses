@@ -64,6 +64,13 @@
         "expires": null,
         "active": true
       }
+    },
+    "xvocmuk": {
+      "Pavel": {
+        "level": "DEV",
+        "expires": null,
+        "active": true
+      }
     }
   }
 }
