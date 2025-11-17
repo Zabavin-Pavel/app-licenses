@@ -11,7 +11,9 @@
     "Lera": "97bf3fbcedf7e1222c721fcb1f2cba8f1cb3366e086b32005d3b1db6ff0f54ac",
     "Olea": "94246ce346bbe6fb3db96c8176e76268a8642be5842ee76ba6b762253504c385",
     "Wladik": "cac9e7a31755c53dec4d669d6ebda4b4470559e824b292842bce0e6b3426edf4",
-    "Andru": "3cde50a63329062660354a6b351938371a279f620f7bc4e9a63c746f744040e5"
+    "Andru": "3cde50a63329062660354a6b351938371a279f620f7bc4e9a63c746f744040e5",
+    "Self": "3cde50a63329062660354a6b351938371a279f620f7bc4e9a63c746f744040e5",
+    "Jeyho": ""
   },
   "apps": {
     "joystick": {
@@ -74,6 +76,26 @@
     "xvocmuk": {
       "Pavel": {
         "level": "DEV",
+        "expires": null,
+        "active": false
+      },
+      "Alex": {
+        "level": "PRO",
+        "expires": null,
+        "active": true
+      },
+      "Sereja": {
+        "level": "PRO",
+        "expires": null,
+        "active": true
+      },
+      "Self": {
+        "level": "PRO",
+        "expires": null,
+        "active": true
+      },
+      "Jeyho": {
+        "level": "PRO",
         "expires": null,
         "active": true
       }
