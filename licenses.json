@@ -77,7 +77,7 @@
       "Pavel": {
         "level": "DEV",
         "expires": null,
-        "active": false
+        "active": true
       },
       "Alex": {
         "level": "PRO",
