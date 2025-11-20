@@ -4,6 +4,7 @@
     "Pavel": "3ac54ce7ae88135f5c345730844a279608ab7e46ca3b94ff6990f7e0df8bbc40",
     "Valek": "",
     "Alex": "3b9275f46fe9a819a058c5644d4ea2a1dd7fdb54bbd6668f0a966ff1a7ecad51",
+    "Alex_": "37e1950d58ad3a3e7753b1dd3c60d4e1b3f57f4084d73695af9ad605bf67d764",
     "Sereja": "d78c98374b26b7a80b7a1775063a04019516c31d8e94a68bb8ad3e56a484ea8c",
     "Dima": "4f7b7f68953b86fc52eabd4fa36ad49457c33c61ef9f73216f95c2006cf2ae9a",
     "Evgen": "2afb692663d0b195ae331d87e4321a2bdd8ddebdb77dec81e91badf52153523a",
@@ -23,6 +24,11 @@
         "active": true
       },
       "Alex": {
+        "level": "PRO",
+        "expires": null,
+        "active": true
+      },
+      "Alex_": {
         "level": "PRO",
         "expires": null,
         "active": true
@@ -80,6 +86,11 @@
         "active": true
       },
       "Alex": {
+        "level": "DEV",
+        "expires": null,
+        "active": true
+      },
+      "Alex_": {
         "level": "DEV",
         "expires": null,
         "active": true
