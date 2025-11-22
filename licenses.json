@@ -14,7 +14,8 @@
     "Wladik": "cac9e7a31755c53dec4d669d6ebda4b4470559e824b292842bce0e6b3426edf4",
     "Andru": "3cde50a63329062660354a6b351938371a279f620f7bc4e9a63c746f744040e5",
     "Self": "7e35685de71685cda4c341181938251f46004ded8137ff0565ca6fcfdcdcbd24",
-    "Jeyho": "d8210c94a87d3a3ba9e38349cb78b65148eab97fb92b8527476a0a42c8ce6c88"
+    "Jeyho": "d8210c94a87d3a3ba9e38349cb78b65148eab97fb92b8527476a0a42c8ce6c88",
+    "Yura": "e598e0de1d68254e4f270d2491a7d59efda959a18a1ced971ac6c8b4b8ccb8fd"
   },
   "apps": {
     "joystick": {
@@ -74,6 +75,11 @@
         "active": true
       },
       "Andru": {
+        "level": "PRO",
+        "expires": null,
+        "active": true
+      },
+      "Yura": {
         "level": "PRO",
         "expires": null,
         "active": true
