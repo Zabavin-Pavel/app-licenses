@@ -11,7 +11,7 @@
   },
   "delay": 1150,
   "auto_send": true,
-  "base_address": "0x01417EB8",
+  "base_address": "0x0141AF48",
   "chat_offsets": {
     "base": "0x0144A4D8",
     "chain": ["0x0", "0x98", "0x278", "0x150", "0x18"],
