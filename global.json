@@ -13,7 +13,7 @@
   "auto_send": true,
   "base_address": "0x0141AF48",
   "chat_offsets": {
-    "base": "0x0144A4D8",
+    "base": "0x0144D578",
     "chain": ["0x0", "0x98", "0x278", "0x150", "0x18"],
     "counter": "0x28C",
     "string_chain": ["0x6F0", "0xC8"]
