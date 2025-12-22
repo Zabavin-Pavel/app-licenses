@@ -1,5 +1,5 @@
 {
-  "min_version": "10",
+  "min_version": "8",
   "users": {
     "Pavel": "3ac54ce7ae88135f5c345730844a279608ab7e46ca3b94ff6990f7e0df8bbc40",
     "Valek": "",
@@ -108,16 +108,6 @@
         "active": true
       },
       "Sereja": {
-        "level": "DEV",
-        "expires": null,
-        "active": true
-      },
-      "Self": {
-        "level": "DEV",
-        "expires": null,
-        "active": true
-      },
-      "Jeyho": {
         "level": "DEV",
         "expires": null,
         "active": true
