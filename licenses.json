@@ -123,6 +123,38 @@
         "expires": null,
         "active": true
       }
+    },
+    "dydydytel": {
+      "Pavel": {
+        "level": "DEV",
+        "expires": null,
+        "active": true
+      },
+      "Alex": {
+        "level": "DEV",
+        "expires": null,
+        "active": true
+      },
+      "Alex_": {
+        "level": "DEV",
+        "expires": null,
+        "active": true
+      },
+      "Alex__": {
+        "level": "DEV",
+        "expires": null,
+        "active": true
+      },
+      "Ruslan": {
+        "level": "DEV",
+        "expires": null,
+        "active": true
+      },
+      "Lvenok": {
+        "level": "DEV",
+        "expires": null,
+        "active": true
+      }
     }
   }
 }
