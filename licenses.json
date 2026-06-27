@@ -154,6 +154,11 @@
         "level": "DEV",
         "expires": null,
         "active": true
+      },
+      "Andru": {
+        "level": "DEV",
+        "expires": null,
+        "active": true
       }
     }
   }
