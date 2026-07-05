@@ -181,6 +181,11 @@
         "level": "DEV",
         "expires": null,
         "active": true
+      },
+      "Ruslan": {
+        "level": "DEV",
+        "expires": null,
+        "active": true
       }
     }
   }
