@@ -17,3 +17,4 @@
 [2026-10-08 10:27:23 MSK] [SUCCESS] [User: Pavel] [HWID: eb34c920449f0c0f47678150a1d73dc2a90c0585eaeebafb63b151c5bbc34b44] -> Успешный вход в систему. Уровень прав: DEV
 [2026-10-08 10:29:20 MSK] [SUCCESS] [User: Pavel] [HWID: eb34c920449f0c0f47678150a1d73dc2a90c0585eaeebafb63b151c5bbc34b44] -> Успешный вход в систему. Уровень прав: DEV
 [2026-10-08 08:10:11 UTC] [TEST] Изолированный тест дозаписи в connections.log
+[2026-10-08 08:15:08 UTC] [TEST] Изолированный тест дозаписи в connections.log
