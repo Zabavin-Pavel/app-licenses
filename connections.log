@@ -1,0 +1,15 @@
+[2026-10-08 06:29:41 UTC] Юзер DEV успешно авторизован. Лог сохранен локально из-за блокировки сети.
+[2026-10-08 06:31:22 UTC] [SUCCESS] [User: Pavel] [HWID: eb34c920449f0c0f47678150a1d73dc2a90c0585eaeebafb63b151c5bbc34b44] -> Успешный вход в систему. Уровень прав: `DEV`
+[2026-10-08 06:36:44 UTC] [SUCCESS] [User: Pavel] [HWID: eb34c920449f0c0f47678150a1d73dc2a90c0585eaeebafb63b151c5bbc34b44] -> Успешный вход в систему. Уровень прав: `DEV`
+[2026-10-08 06:41:26 UTC] [SUCCESS] [User: Pavel] [HWID: eb34c920449f0c0f47678150a1d73dc2a90c0585eaeebafb63b151c5bbc34b44] -> Успешный вход в систему. Уровень прав: `DEV`
+[2026-10-08 06:41:47 UTC] [SUCCESS] [User: Pavel] [HWID: eb34c920449f0c0f47678150a1d73dc2a90c0585eaeebafb63b151c5bbc34b44] -> Успешный вход в систему. Уровень прав: `DEV`
+[2026-10-08 06:58:56 UTC] [SUCCESS] [User: Pavel] [HWID: eb34c920449f0c0f47678150a1d73dc2a90c0585eaeebafb63b151c5bbc34b44] -> Успешный вход. Уровень: DEV
+[2026-10-08 06:59:27 UTC] [SUCCESS] [User: Pavel] [HWID: eb34c920449f0c0f47678150a1d73dc2a90c0585eaeebafb63b151c5bbc34b44] -> Успешный вход. Уровень: DEV
+[2026-10-08 10:02:48 MSK] [SUCCESS] [User: Pavel] [HWID: eb34c920449f0c0f47678150a1d73dc2a90c0585eaeebafb63b151c5bbc34b44] -> Успешный вход. Уровень: DEV
+[2026-10-08 10:03:50 MSK] [ALERT] [User: Неизвестный] [HWID: eb34c920449f0c0f47678150a1d73dc2a90c0585eaeebafb63b151c5bbc34b44] -> Не удалось получить базу лицензий из всех доступных источников
+[2026-10-08 10:06:05 MSK] [ALERT] [User: Неизвестный] [HWID: eb34c920449f0c0f47678150a1d73dc2a90c0585eaeebafb63b151c5bbc34b44] -> Не удалось получить базу лицензий из GitHub API
+[2026-10-08 10:06:34 MSK] [ALERT] [User: Неизвестный] [HWID: eb34c920449f0c0f47678150a1d73dc2a90c0585eaeebafb63b151c5bbc34b44] -> Не удалось получить базу лицензий из GitHub API
+[2026-10-08 10:07:54 MSK] [ALERT] [User: Неизвестный] [HWID: eb34c920449f0c0f47678150a1d73dc2a90c0585eaeebafb63b151c5bbc34b44] -> Не удалось получить базу лицензий из GitHub API
+[2026-10-08 10:09:36 MSK] [SUCCESS] [User: Pavel] [HWID: eb34c920449f0c0f47678150a1d73dc2a90c0585eaeebafb63b151c5bbc34b44] -> Успешный вход. Уровень: DEV
+[2026-10-08 10:12:16 MSK] [SUCCESS] [User: Pavel] [HWID: eb34c920449f0c0f47678150a1d73dc2a90c0585eaeebafb63b151c5bbc34b44] -> Успешный вход в систему. Уровень прав: DEV
+[2026-10-08 10:14:03 MSK] [SUCCESS] [User: Pavel] [HWID: eb34c920449f0c0f47678150a1d73dc2a90c0585eaeebafb63b151c5bbc34b44] -> Успешный вход в систему. Уровень прав: DEV

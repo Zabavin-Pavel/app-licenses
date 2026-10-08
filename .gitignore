@@ -1,0 +1,36 @@
+# Среда разработки и виртуальное окружение
+venv/
+.venv/
+env/
+ENV/
+.env
+
+# Файлы сборки PyInstaller и PyArmor
+build/
+dist/
+*.spec
+.pyarmor/
+pyarmor.cfg
+
+# Файлы лицензий (базу юзеров прячем от гита)
+app_licenses/licenses.json
+licenses.json
+
+# ЛОГИ ПРОЕКТА (Явно разрешаем Git отслеживать этот файл!)
+!connections.log
+
+# Кэш Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Настройки сред разработки (IDE)
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp

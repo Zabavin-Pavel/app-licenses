@@ -1,21 +1,5 @@
 {
-  "triggers": ["[PVP-Ивент]", "БХ"],
-  "chat_filters": ["^FF3600", "^00FF00"],
-  "patterns": [
-    "БХ\\s*:\\s*(.+?)\\s*\\|"
-  ],
-  "fallback": {
-    "enabled": true,
-    "min_same_answers": 3,
-    "timeout": 10000
-  },
   "delay": 1150,
   "auto_send": true,
-  "base_address": "0x154EF20",
-  "chat_offsets": {
-    "base": "0x0144D578",
-    "chain": ["0x0", "0x98", "0x278", "0x150", "0x18"],
-    "counter": "0x28C",
-    "string_chain": ["0x6F0", "0xC8"]
-  }
+  "base_address": "0x154EF20"
 }
