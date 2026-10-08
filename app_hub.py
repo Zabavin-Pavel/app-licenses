@@ -5,6 +5,7 @@ import random
 import hashlib
 import subprocess
 import urllib.request
+import threading
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Optional, Any
@@ -94,12 +95,57 @@ class AppHub:
             if self.DEBUG: print(f"❌ Ошибка записи локального лога: {e}")
 
     def log_event(self, message: str, level: str = "INFO"):
-        user_label = self._state['user'] or "Неизвестный"
-        timestamp = datetime.now(self.tz_moscow).strftime("%Y-%m-%d %H:%M:%S MSK")
-        log_line = f"[{timestamp}] [{level}] [User: {user_label}] [HWID: {self._state['hwid']}] -> {message}"
+        user_label = self._state['user'] or "Unknown"
+        timestamp_msk = datetime.now(self.tz_moscow).strftime("%Y-%m-%d %H:%M:%S MSK")
+        timestamp_file = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
         
+        # 1. Текст самого лога
+        log_line = f"[{timestamp_msk}] [{level}] [User: {user_label}] [HWID: {self._state['hwid']}] -> {message}"
+        
+        # Сначала пишем локально на ПК (для надежности)
         self._append_local_log("connections.log", log_line)
         if self.DEBUG: print(f"🧠 [LOG {level}] {message}")
+
+        # Если включен локальный режим разработки — в сеть ничего не шлем
+        if self.local_mode:
+            return
+
+        # 2. ОТПРАВКА НА СЕРВЕР (GITHUB API)
+        def upload_worker():
+            import base64
+            opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
+            
+            # Формируем уникальное имя файла для каждого события, чтобы избежать конфликтов
+            filename = f"logs/{timestamp_file}_{user_label}_{self._state['hwid'][:8]}.log"
+            
+            domain = "://github.com"
+            path = f"/repos/{self.REPO_OWNER}/{self.REPO_NAME}/contents/{filename}"
+            url = f"https://{domain}{path}"
+            
+            # GitHub API требует передавать текст файла в кодировке Base64
+            encoded_content = base64.b64encode(log_line.encode('utf-8')).decode('utf-8')
+            
+            payload = {
+                "message": f"Log action from {user_label} ({level})",
+                "content": encoded_content,
+                "branch": self.BRANCH
+            }
+            
+            headers = {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)',
+                'Authorization': f'Bearer {self._get_token()}',
+                'Content-Type': 'application/json'
+            }
+            
+            try:
+                req = urllib.request.Request(url, data=json.dumps(payload).encode('utf-8'), headers=headers, method='PUT')
+                with opener.open(req, timeout=10) as resp:
+                    if self.DEBUG: print(f"☁️ Лог успешно отправлен на GitHub: {filename}")
+            except Exception as e:
+                if self.DEBUG: print(f"⚠️ Не удалось отправить лог на сервер: {e}")
+
+        # Запускаем отправку в фоновом потоке, чтобы интерфейс программы не зависал во время сетевого запроса
+        threading.Thread(target=upload_worker, daemon=True).start()
 
     def _download_file(self, filename: str) -> Optional[str]:
         """Изолированный сетевой запрос к API GitHub в обход системных прокси ОС"""
